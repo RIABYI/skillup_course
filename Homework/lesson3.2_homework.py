@@ -41,7 +41,6 @@
 
 # Задание_1
 
-
 def format_phrase(t1,t2):
     t3=f'"{t1}"'+('\n{:>50}'.format(t2))
     return(t3)
@@ -54,9 +53,7 @@ print('----------------------------------------------------')
 print(format_phrase(text, author))
 print('----------------------------------------------------')
 
-
 # Задание_2
-
 
 def even (a, b):
     list_1=[]
@@ -68,9 +65,7 @@ def even (a, b):
 
 print(even(4, 24))
 
-
 # Задание_3
-
 
 def square(symbol, length, paint):
     print('----------------------------------------------------')
@@ -92,19 +87,16 @@ def square(symbol, length, paint):
 
 print(square('#', 15, True))
 
-
 # Задание_4
-
 
 def minimal(a, b, c, d, e):
     return(min(a, b, c, d, e))
 
 
 print(minimal(3, 5, 7, 8, 1))
-
+print('----------------------------------------------------')
 
 # Задание_5
-
 
 def product_of_numbers(a, b):
     if a>b:
@@ -116,10 +108,18 @@ def product_of_numbers(a, b):
 
 
 print (product_of_numbers(8, 3))
-
+print('----------------------------------------------------')
 
 # Задание_6
 
+def number_of_digits(a):
+    return(len(str(a)))
+
+
+print (number_of_digits(848))
+print('----------------------------------------------------')
+
+# Задание_7
 
 def pallindrom(number):
     # В конце урока говорилось, что палиндромом есть, например, число 25752, а не 2552
@@ -132,3 +132,4 @@ def pallindrom(number):
     
 
 print(pallindrom(1489841))
+print('----------------------------------------------------')
