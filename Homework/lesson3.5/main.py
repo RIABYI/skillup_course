@@ -27,6 +27,7 @@ while True:
     if main_choice == 2:
         text = input('Введите строку, которую нужно кодировать(декодировать):\n')
         key = input('Введите ключ шифрования:\n')
-        print(XOR_cipher(text, key))
+        print('--------------------------------------------------------')
+        print('Зашифрованная строка:', XOR_cipher(text, key))
     if main_choice == 3:
         break

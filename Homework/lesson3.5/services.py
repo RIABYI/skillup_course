@@ -14,6 +14,7 @@
 # и показать его возможности в файле main.py
 
 from datetime import datetime, date
+from itertools import cycle
  
 DAYS = ('понедельник', 'вторник', 'среда', 'четверг', 'пятница', 
         'суббота', 'воскресенье')
@@ -30,11 +31,14 @@ def i_date(u_date) -> str:
 
 def XOR_cipher( text, key ) -> str: 
     """encoding and decoding string"""
-    encoded_str = ""
-    if key.isdigit():
-        key=int(key)
-    else:
-        return('Ключ должен быть целым числом!')
-    for symbol in text:
-        encoded_str += chr((ord(symbol) ^ key))
-    return encoded_str  
+    return ''.join(chr(ord(x) ^ ord(y)) for (x,y) in zip(text, cycle(key)))
+  
+    # Более простой вариант:
+    # encoded_str = ""
+    # if key.isdigit():
+    #     key=int(key)
+    # else:
+    #     return('Ключ должен быть целым числом!')
+    # for symbol in text:
+    #     encoded_str += chr((ord(symbol) ^ key))
+    # return encoded_str  
