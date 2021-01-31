@@ -20,11 +20,11 @@ class Auris(Toyota):
         """Showing information about the car"""
         print('Описание модели из Википедии')
 
-mycar = Camry()
-mycar.get_information() 
+# mycar = Camry()
+# mycar.get_information() 
 
-mycar = Auris()
-mycar.get_information()
+# mycar = Auris()
+# mycar.get_information()
 
 # EDIT_2
 # Реализовать клас Температуры (как сегодня в конце урока), который 
@@ -78,13 +78,13 @@ class Temperature:
         self.__mark = value
         self.__scale = 'K'
 
-a = Temperature (1, 'C')
-print(a.celsius)
-print(a.kelvin)
+# a = Temperature (1, 'C')
+# print(a.celsius)
+# print(a.kelvin)
 
-a.celsius = 22
-print(a.celsius)
-print(a.kelvin)
+# a.celsius = 22
+# print(a.celsius)
+# print(a.kelvin)
 
 # EDIT_3s
 # Бонус+ режим: кто сможет закончить пример с ФУНКТОРОМ сортировки ч-з
@@ -92,13 +92,18 @@ print(a.kelvin)
 # будем изучать ВЕБ )
 
 class SortKey:
-    def __init__(self, *args):
-        self.attrs = args
+    values = []
+
+    def __init__(self, *kwargs):
+        self.attrs = kwargs
+
     def __call__(self,	instance):
-        values = []
         for attr in self.attrs:
-            values.append(getattr(instance, attr)) 
-        return values
+            self.values.append(getattr(instance, attr)) 
+            self.values = [str(i) for i in self.values]
+            self.values.sort()
+            return self.values
+            # Да, способ топорный на 100%, но работает :)
 
 class Person:
     def __init__(self,	name, surname, email):
@@ -109,13 +114,13 @@ class Person:
     def __repr__(self):
         return self.name
 
-joe = Person('Joe', 'QWE', 'joe@mail.com')
-mark = Person('Mark', 'QWasdE', 'mark@mail.com')
-jack = Person('Jack', 'Q123WqweqeE', 'jack@mail.com')
+joe = Person('Joe', 'CWE', 'joe@mail.com')
+mark = Person('Mark', 'BWasdE', 'mark@mail.com')
+jack = Person('Jack', 'A123WqweqeE', 'jack@mail.com')
 people = [joe, mark, jack]
 
-print(people) # OUTPUT: [Joe, Mark, Jack]
-
-people.sort(key = SortKey('name'))
-
-print(people) # OUTPUT: [Jack, Joe, Mark] 
+print(people) # OUTPUT: [Joe, Mark, Jack] 
+people.sort(key = SortKey('email'))
+print(people) # OUTPUT: [Jack, Joe, Mark]
+people.sort(key = SortKey('surname'))
+print(people) # OUTPUT: [Mark, Joe, Jack]
