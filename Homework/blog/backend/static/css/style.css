@@ -65,6 +65,7 @@ p {
 .post-body {
     font-size: 12pt;
     text-align: justify;
+    overflow:hidden;
 }
 
 .post_img {

@@ -6,7 +6,7 @@ class HomeView(ListView):
     """Base home view."""
 
     template_name = "core/home.html"
-    queryset = Post.objects.values("title", "body")
+    queryset = Post.objects.all()
 
 class AboutView(TemplateView):
     """Base about view."""

@@ -8,3 +8,6 @@ __pycache__/
 # Linux files
 .env
 myvenv/
+
+# Project files/dirs
+media/
